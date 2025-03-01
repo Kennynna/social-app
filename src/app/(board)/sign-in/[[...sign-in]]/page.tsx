@@ -55,7 +55,7 @@ export default function SignInPage() {
 						<Clerk.Field name='identifier' className='flex flex-col gap-2'>
 							<Clerk.Input
 								placeholder='john@gmail.com'
-								className='py-2 px-6 rounded-full text-black w-72 placeholder:text-sm'
+								className='py-2 px-6 rounded-full text-black w-72 placeholder:text-sm text'
 							/>
 							<Clerk.FieldError className='text-red-300 text-sm' />
 						</Clerk.Field>
@@ -153,10 +153,13 @@ export default function SignInPage() {
 						Создать аккаунт
 					</Link>
 					<p className='w-72 text-xs'>
-						By signing up, you agree to the{' '}
-						<span className='text-iconBlue'>Terms of Service</span> and{' '}
-						<span className='text-iconBlue'>Privacy Policy</span>, including{' '}
-						<span className='text-iconBlue'>Cookie Use</span>.
+						Подписываясь, вы соглашаетесь с Условиями предоставления услуг,
+						<span className='text-iconBlue'>
+							политикой конфиденциальности,{' '}
+						</span>
+						<span className='text-iconBlue'>
+							включая использование файлов cookie.
+						</span>
 					</p>
 				</SignIn.Root>
 			</div>

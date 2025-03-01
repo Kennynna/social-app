@@ -1,6 +1,6 @@
-import { CustomButtom } from '@/components/custom-buttom'
-import { prisma } from './../prisma'
-import { Feeds } from '@/components/Feeds'
+import { prisma } from '@/prisma'
+import Feeds from '@/components/Feed'
+import Link from 'next/link'
 
 const Homepage = async () => {
 	const users = await prisma.user.findMany()
@@ -8,8 +8,28 @@ const Homepage = async () => {
 
 	return (
 		<div className=''>
-			<p>{users ? users?.map(user => user.username) : ''}</p>
-			<Feeds />
+			<div className='px-4 pt-4 flex justify-between text-textGray font-bold border-b border-border bg-background'>
+				<Link
+					className='pb-3 flex items-center border-b-4 border-iconBlue'
+					href='/'
+				>
+					For you
+				</Link>
+				<Link className='pb-3 flex items-center' href='/'>
+					Following
+				</Link>
+				<Link className='hidden pb-3 md:flex items-center' href='/'>
+					React.js
+				</Link>
+				<Link className='hidden pb-3 md:flex items-center' href='/'>
+					Javascript
+				</Link>
+				<Link className='hidden pb-3 md:flex items-center' href='/'>
+					CSS
+				</Link>
+			</div>
+			{/* <Share/>
+    <Feed/> */}
 		</div>
 	)
 }
