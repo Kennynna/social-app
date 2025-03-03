@@ -1,5 +1,5 @@
 import { prisma } from '@/prisma'
-import { Post } from '@/components/Post'
+import Post from '@/components/Post'
 import { auth } from '@clerk/nextjs/server'
 import InfiniteFeed from '@/components/InfiniteFeed'
 
@@ -53,7 +53,7 @@ const Feed = async ({ userProfileId }: { userProfileId?: string }) => {
 					<Post post={post} />
 				</div>
 			))}
-			{/* <InfiniteFeed userProfileId={userProfileId} /> */}
+			<InfiniteFeed userProfileId={userProfileId} />
 		</div>
 	)
 }

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Image from './Image'
-import { socket } from '@/lib/socket'
+import { socket } from '@/socket'
 import { useRouter } from 'next/navigation'
 
 type NotificationType = {
@@ -42,7 +42,7 @@ const Notification = () => {
 				onClick={() => setOpen(prev => !prev)}
 			>
 				<div className='relative'>
-					{/* <Image path={`icons/notification.svg`} alt='' w={24} h={24} /> */}
+					<Image path={`icons/notification.svg`} alt='' w={24} h={24} />
 					{notifications.length > 0 && (
 						<div className='absolute -top-4 -right-4 w-6 h-6 bg-iconBlue p-2 rounded-full flex items-center justify-center text-sm'>
 							{notifications.length}

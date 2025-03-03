@@ -1,11 +1,8 @@
-import { prisma } from '@/prisma'
-import Feeds from '@/components/Feed'
+import Feed from '@/components/Feed'
 import Link from 'next/link'
+import Share from '@/components/Share'
 
-const Homepage = async () => {
-	const users = await prisma.user.findMany()
-	console.log(users)
-
+const Homepage = () => {
 	return (
 		<div className=''>
 			<div className='px-4 pt-4 flex justify-between text-textGray font-bold border-b border-border bg-background'>
@@ -28,8 +25,8 @@ const Homepage = async () => {
 					CSS
 				</Link>
 			</div>
-			{/* <Share/>
-    <Feed/> */}
+			<Share />
+			<Feed />
 		</div>
 	)
 }

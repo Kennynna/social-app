@@ -1,8 +1,9 @@
-import Link from "next/link"
-import Image from "./Image"
-import { currentUser } from "@clerk/nextjs/server"
-import Notification from "./Notification"
-import Socket from "./Socket"
+import Link from 'next/link'
+import Image from './Image'
+import { currentUser } from '@clerk/nextjs/server'
+import Notification from './Notification'
+import Socket from '@/components/Socket'
+import Logout from './Logout'
 const menuList = [
 	{
 		id: 1,
@@ -75,7 +76,7 @@ const LeftBar = async () => {
 			<div className='flex flex-col gap-4 text-lg items-center xxl:items-start'>
 				{/* LOGO */}
 				<Link href='/' className='p-2 rounded-full hover:bg-[#181818] '>
-					{/* <Image path='icons/logo.svg' alt='logo' w={24} h={24} /> */}
+					<Image path='icons/logo.svg' alt='logo' w={24} h={24} />
 				</Link>
 				{/* MENU LIST */}
 				<div className='flex flex-col gap-4'>
@@ -83,20 +84,20 @@ const LeftBar = async () => {
 						<div key={item.id || i}>
 							{i === 2 && user && (
 								<div>
-									<Notification />  
+									<Notification />
 								</div>
 							)}
 							<Link
 								href={item.link}
 								className='p-2 rounded-full hover:bg-[#181818] flex items-center gap-4'
 							>
-								{/* <Image
+								<Image
 									path={`icons/${item.icon}`}
 									alt={item.name}
 									w={24}
 									h={24}
-								/> */}
-								<span className='hidden xxl:inline'>{item.name}</span>
+								/>{' '}
+								*<span className='hidden xxl:inline'>{item.name}</span>
 							</Link>
 						</div>
 					))}
@@ -106,7 +107,7 @@ const LeftBar = async () => {
 					href='/compose/post'
 					className='bg-white text-black rounded-full w-12 h-12 flex items-center justify-center xxl:hidden'
 				>
-					{/* <Image path='icons/post.svg' alt='new post' w={24} h={24} /> */}
+					<Image path='icons/post.svg' alt='new post' w={24} h={24} />
 				</Link>
 				<Link
 					href='/compose/post'
@@ -122,16 +123,16 @@ const LeftBar = async () => {
 					<div className='flex items-center justify-between'>
 						<div className='flex items-center gap-2'>
 							<div className='w-10 h-10 relative rounded-full overflow-hidden'>
-								{/* <Image src={user?.imageUrl} alt='' w={100} h={100} tr={true} /> */}
+								<Image src={user?.imageUrl} alt='' w={100} h={100} tr={true} />
 							</div>
 							<div className='hidden xxl:flex flex-col'>
 								<span className='font-bold'>{user?.username}</span>
 								<span className='text-sm text-textGray'>@{user?.username}</span>
 							</div>
 						</div>
-						<div className="hidden xxl:block cursor-pointer font-bold">...</div>
+						<div className='hidden xxl:block cursor-pointer font-bold'>...</div>
 						{/* ADD LOGOUT */}
-						{/* <Logout /> */}
+						<Logout />
 					</div>
 				</>
 			)}
