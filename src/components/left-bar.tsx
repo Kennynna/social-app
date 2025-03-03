@@ -96,8 +96,8 @@ const LeftBar = async () => {
 									alt={item.name}
 									w={24}
 									h={24}
-								/>{' '}
-								*<span className='hidden xxl:inline'>{item.name}</span>
+								/>
+								<span className=' xxl:inline'>{item.name}</span>
 							</Link>
 						</div>
 					))}

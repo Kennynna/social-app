@@ -1,11 +1,11 @@
-// import { imagekit } from '@/utils'
+import { imagekit } from '@/utils'
 import Image from './Image'
-// import PostInfo from './PostInfo'
-// import PostInteractions from './PostInteractions'
-// import Video from './Video'
+import PostInteractions from './PostInteractions'
+import Video from './Video'
 import Link from 'next/link'
 import { Post as PostType } from '@prisma/client'
 import { format } from 'timeago.js'
+import PostInfo from './PostInfo'
 
 type UserSummary = {
 	displayName: string | null
@@ -79,7 +79,7 @@ const Post = ({
 						<Link
 							href={`/${originalPost.user.username}`}
 							className='flex gap-4'
-						/>
+						>
 							<div
 								className={`${
 									type !== 'status' && 'hidden'
@@ -112,8 +112,8 @@ const Post = ({
 									</span>
 								)}
 							</div>
-						{/* </Link> */}
-						{/* <PostInfo /> */}
+						</Link>
+						<PostInfo />
 					</div>
 					{/* TEXT & MEDIA */}
 					<Link
@@ -136,23 +136,23 @@ const Post = ({
 					)}
 					{originalPost.video && (
 						<div className='rounded-lg overflow-hidden'>
-							{/* <Video
+							<Video
 								path={originalPost.video}
 								className={originalPost.isSensitive ? 'blur-3xl' : ''}
-							/> */}
+							/>
 						</div>
 					)}
 					{type === 'status' && (
 						<span className='text-textGray'>8:41 PM · Dec 5, 2024</span>
 					)}
-					{/* <PostInteractions
+					<PostInteractions
 						username={originalPost.user.username}
 						postId={originalPost.id}
 						count={originalPost._count}
 						isLiked={!!originalPost.likes.length}
 						isRePosted={!!originalPost.rePosts.length}
 						isSaved={!!originalPost.saves.length}
-					/> */}
+					/>
 				</div>
 			</div>
 		</div>
