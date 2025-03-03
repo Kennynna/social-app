@@ -71,7 +71,7 @@ const LeftBar = async () => {
 	const user = await currentUser()
 
 	return (
-		<div className='h-screen sticky top-0 flex flex-col justify-between pt-2 pb-8'>
+		<div className='h-screen sticky top-0 flex flex-col justify-between pt-2 pb-8 w-[350px]'>
 			{/* LOGO MENU BUTTON */}
 			<div className='flex flex-col gap-4 text-lg items-center xxl:items-start'>
 				{/* LOGO */}
